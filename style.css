@@ -1,16 +1,16 @@
 .container{
-  background-color: lightblue;
-  width:400px;
-  margin:10em auto;
-  padding:20px;
+    background-color: lightblue;
+    width:400px;
+    margin:10em auto;
+    padding:20px;
 }
 
 
-#next{
-  width:100px;
-  padding:10px;
-  border-radius:10px;
-  background-color: yellowgreen;
-  border-style:none;
-  
-}
+#start {
+    width:100px;
+    padding:10px;
+    border-radius:10px;
+    background-color: yellowgreen;
+    border-style:none;
+    
+  }
