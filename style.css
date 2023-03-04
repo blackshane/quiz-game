@@ -2,7 +2,7 @@
     box-sizing:border-box;
 }
 
-body{
+/* body{
     padding: 0;
     margin: 0;
     display: flex;
@@ -12,9 +12,9 @@ body{
     align-items: center;
 }
 
+*/
 
-
-.container{
+.container {
     background-color: lightblue;
     width:800px;
     max-width: 80%;
@@ -28,7 +28,7 @@ body{
     width:100px;
     padding:10px;
     border-radius:10px;
-    background-color: yellowgreen;
+    background-color: rgb(138, 162, 185);
     color:white;
     border-style:none;
     
@@ -54,3 +54,18 @@ body{
     margin: 20px 0;
   }
 
+.start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls {
+display: flex;
+justify-content: center;
+align-items: center;    
+}
+
+.hide {
+    display: none;
+}
