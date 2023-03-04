@@ -2,7 +2,12 @@
     box-sizing: border-box;
 }
 
- body{
+:root {
+
+}
+
+ body {
+    
     padding: 0;
     margin: 0;
     display: flex;
@@ -10,9 +15,17 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: rgb(203, 209, 241)
+
 }
 
+body.correct:focus {
+    background-color: green;
+}
 
+body.wrong:focus {
+    background-color: red;
+}
 
 .container {
     width:800px;
@@ -40,26 +53,24 @@
   }
 
 .btn {
-    background-color: green;
     border-style: solid;
     border:darkblue;
    color: white;
 }  
 
 .btn:hover {
-    border-color:black;
+    color:black;
   }
 
-.btn.correct::after {
+  .correct:focus {
     background-color: green;
-    
-}
+    color:white;
+  }
 
-.btn.wrong::after {
+  .wrong:focus {
     background-color: red;
-}
-
-
+    color: white;
+  }
 
 .start-btn, .next-btn {
     font-size: 1.5rem;

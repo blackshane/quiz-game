@@ -38,6 +38,10 @@ function showQuestion(question){
         }
         button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
+        button.addEventListener('click', (e => {
+            e.preventDefault();
+      
+        }));
     });
 }
 
