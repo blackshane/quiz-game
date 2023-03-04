@@ -12,7 +12,7 @@ const QUESTIONS = [
  ];
  
  let counter = 0;
- let display = document.querySelector('h3'); // is only targeting 1st <h3>
+ let display = document.querySelectora('h3'); // is only targeting 1st <h3> (maybe All?)
  display.innerText = QUESTIONS[counter]
  
  let btn = document.getElementById('start');
