@@ -29,9 +29,23 @@ body{
     padding:10px;
     border-radius:10px;
     background-color: yellowgreen;
+    color:white;
     border-style:none;
     
   }
+
+  .btn:hover {
+    border-color:black;
+  }
+
+.btn.correct::after {
+    background-color: green;
+    
+}
+
+.btn.wrong::after {
+    background-color: red;
+}
 
   .btn-grid {
     display: grid;
