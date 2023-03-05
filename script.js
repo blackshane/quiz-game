@@ -6,12 +6,46 @@ const answerButtonsEl = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 
+startButton.addEventListener('click', setTime)
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     nextQuestion()
 })
-   
+
+var timeEl = document.querySelector(".time");
+var mainEl = document.getElementById("main");
+
+var secondsLeft = 6;
+
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left till GAME OVER.";
+
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      timeEl.textContent = "GAME OVER";
+      questionContainerEl.classList.add('hide')
+      
+    }
+
+  }, 1000);
+}
+
+// Function to create and append colorsplosion image
+function sendMessage() {
+  timeEl.textContent = " ";
+  var imgEl = document.createElement("string");
+  imgEl.setAttribute("src", "images/image_1.jpg");
+  mainEl.appendChild(imgEl);
+
+}
+
+
 
 function startQuiz() {
     startButton.classList.add('hide')
