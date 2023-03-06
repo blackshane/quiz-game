@@ -9,34 +9,62 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<header>
-    <h1 class="time" style="text-align:center;"></h1>
-    <div id="main"></div>
-    <div>
-        <button class="high-score" id="high-score-button">High Score</button>
-    </div>
-</header>
 
 <body>
+    <header>
+
+       <div id="main"></div>
+   </header>
+   
 
     <div class="container">
+        <h1 class="time" style="text-align:center;">&nbsp;</h1>
+
+        <h2 class="score" style="text-align:center;">
+         Score: <span id="score">0</span>
+        </h2>
+
         <div id="question-container" class="hide">
+
             <div id="question">Question 1</div>
             <div id="answer-buttons" class="btn-grid">
-                <button class="btn correct">Answer 1</button>
-                <button class="btn wrong">Answer 2</button>
-                <button class="btn wrong">Answer 3</button>
-                <button class="btn wrong">Answer 4</button>
+                <button class="btn correct" id="right">Answer 1</button>
+                <button class="btn wrong" id="wrong-choice">Answer 2</button>
+                <button class="btn wrong" id="wrong-choice">Answer 3</button>
+                <button class="btn wrong" id="wrong-choice">Answer 4</button>
             </div>
         </div>
             <div class="controls">
                 <button id="start-btn" class="start-btn btn">Start</button>
                 <button id="next-btn" class="next-btn btn hide">Next</button>
-        
             </div>      
-    </div>   
-    <div class="high-score"></div>
+    </div>
+
+    <div class="container">
+        <div>
+            <button class="high-score" id="high-score-button">High Score</button>
+            
+        </div>
+                
+        <div id="high-score-container" class="high-score hide">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Initials</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JG</td>
+                        <td>hunnet million</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     
+    </div>
+
     <!-- <div class="game-over hide" id="game-over-window">GAME OVER</div> -->
 
 

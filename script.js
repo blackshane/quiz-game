@@ -1,56 +1,100 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerEl = document.getElementById('question-container')
-const questionEl = document.getElementById('question')
-const answerButtonsEl = document.getElementById('answer-buttons')
+const STARTING_TIME = 10
+const PENALTY = 5
 
+var startButton = document.getElementById('start-btn')
+var nextButton = document.getElementById('next-btn')
+var highScoreButton = document.getElementById('high-score-button')
+var questionContainerEl = document.getElementById('question-container')
+var highScoreContainerEl = document.getElementById('high-score-container')
 
+var questionEl = document.getElementById('question')
+var answerButtonsEl = document.getElementById('answer-buttons')
+var wrongAnswerEl = document.getElementsByClassName('btn-wrong')
 let shuffledQuestions, currentQuestionIndex
+var timeEl = document.querySelector(".time");
+var scoreEl = document.getElementById("score");
 
-startButton.addEventListener('click', setTime)
+var mainEl = document.getElementById("main");
+var secondsLeft
+var timerInterval
+var score = 0
+
+startButton.addEventListener('click', startTimer)
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     nextQuestion()
 })
 
-var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
+highScoreButton.addEventListener('click', function() {
+    console.log(highScoreButton.dataset.is_shown)
+    if (highScoreButton.dataset.is_shown == 'false') {
+        highScoreContainerEl.classList.add('hide')
+        highScoreButton.dataset.is_shown = true
 
-var secondsLeft = 3;
-
-function setTime() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left till GAME OVER.";
-
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-    
-      mainEl.textContent = "GAME OVER";
-      questionContainerEl.classList.add('hide');
-      timeEl.classList.add('hide');
-      // overMessage.classList.remove('hide');
-       //window.alert('GAME OVER')
-
+    } else {
+        highScoreContainerEl.classList.remove('hide')
+        highScoreButton.dataset.is_shown = false
     }
+})
 
-  }, 1000);
+function adjustTimer(t) {
+    secondsLeft = secondsLeft + t
+    if (secondsLeft <= 0) {
+        gameOver()
+    }
+}
+
+function setScore() {
+    scoreEl.textContent = score
 }
 
 
+function gameOver() {
+    stopTimer()
+    score = 0 
+    setScore()
+    mainEl.textContent = "GAME OVER";
+    questionContainerEl.classList.add('hide');
+    timeEl.classList.add('hide');
+}
+
+function startTimer() {
+    if (timerInterval) {
+        console.log("Error: Timer already started!")
+        return
+    }
+    secondsLeft = STARTING_TIME
+      // Sets interval in variable
+    timerInterval = setInterval(function() {
+        adjustTimer(-1)
+        timeEl.textContent = secondsLeft + " seconds left till GAME OVER.";
+  }, 1000);
+}
+
+function stopTimer() {
+    // Stops execution of action at set interval
+    if (!timerInterval) {
+        console.log("Error: Timer is not running!")
+        return
+    }
+    clearInterval(timerInterval);
+}
 
 
+function showQuestionContainer() {
+    highScoreContainerEl.classList.add('hide')
+    questionContainerEl.classList.remove('hide')
+}
 
 function startQuiz() {
+    score = 0
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() -.5)
     currentQuestionIndex = 0
-    questionContainerEl.classList.remove('hide')
+    showQuestionContainer()
     nextQuestion()
-
+    
 }
 
 function nextQuestion() {
@@ -61,7 +105,7 @@ function nextQuestion() {
 function showQuestion(question){
     questionEl.innerText = question.question
     question.answers.forEach(answer => {
-        const button = document.createElement('button')
+        var button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
         if (answer.correct) {
@@ -85,9 +129,17 @@ function resetState() {
 }
 
 function selectAnswer(event) {
-    const selectedButton = event.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    var selectedButton = event.target
+    var correct = selectedButton.dataset.correct    
+    if (correct) {
+        console.log('IT WAS CORRECT!')
+        score += 1
+        setScore()
+    } else {
+        console.log('Answer incorrect')
+        adjustTimer(-PENALTY)
+    }
+
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -97,7 +149,7 @@ function selectAnswer(event) {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
     }
-    }
+}
 
 
 function setStatusClass(element, correct) {
@@ -115,7 +167,7 @@ function clearStatusClass(element) {
 
 }
 
-const questions = [
+var questions = [
 {
     question: 'Question 1 about Javascript',
     answers: [
