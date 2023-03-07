@@ -8,7 +8,7 @@
 
   ## Deployment
     Open "Index.html" in a browser window.
-   ![image](https://user-images.githubusercontent.com/122633142/221676782-d330b00c-2d0f-44c0-a05b-edc86554c507.png)
+![image](https://user-images.githubusercontent.com/122633142/223318038-39005e72-9c8f-42ce-9465-6784e94385de.png)
   
   (https://github.com/blackshane/quiz-game)
     
