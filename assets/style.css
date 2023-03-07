@@ -26,25 +26,54 @@ body.wrong:focus {
     background-color: red;
 }
 
+#question-container {
+    margin-top: 20px
+}
+
+#high-score-outer-div {
+    border: grey 1px solid;
+    margin-top: 2px;
+    padding: 6px;
+}
+#high-score-container {
+    margin-top: 5px;
+    padding-top: 10px;
+}
+#clear-high-score-btn {
+    margin-top: 10px
+}
+#high-score-table {
+    width: 100%;
+    margin-top: 10px;
+}
+th, td {
+    border-bottom: 1px solid grey;
+    padding: 3px;
+    text-align: left;
+}
+
 .container {
     width:800px;
     max-width: 80%;
     border-radius: 5px;
-    margin:10em auto;
+    margin: 10em auto 10px auto;
     padding:10px;
 } 
 
-#question-container{
-    margin-left: 200px;
+
+.game-over {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: 20px
 }
 
 .btn {
-    width:100px;
     padding:10px;
     border-radius:10px;
     background-color: rgb(138, 162, 185);
     color:white;
-    border-style:none;  
+    border-style:none;
+    margin-right: 4px;
   }
   
 .btn-grid {
