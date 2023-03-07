@@ -258,39 +258,49 @@ function clearStatusClass(element) {
 
 const questions = [
     {
-        question: 'Question 1 about Javascript',
+        question: 'Commonly used data types DO NOT include: ',
         answers: [
-            { text: 'right answer', correct: true },
-            { text: 'wrong answer 1', correct: false },
-            { text: 'wrong answer 2', correct: false },
-            { text: 'wrong answer 3', correct: false },
+            { text: 'alerts', correct: true },
+            { text: 'strings', correct: false },
+            { text: 'booleans', correct: false },
+            { text: 'numbers', correct: false },
         ]
     },
     {
-        question: 'Question 2 about Javascript',
+        question: 'The condition in an if / else statement is enclosed with _____ ',
         answers: [
-            { text: 'right answer', correct: true },
-            { text: 'wrong answer 1', correct: false },
-            { text: 'wrong answer 2', correct: false },
-            { text: 'wrong answer 3', correct: false },
+            { text: 'quotes', correct: false },
+            { text: 'parenthesis', correct: true },
+            { text: 'curly brackets', correct: false },
+            { text: 'square brackets', correct: false },
         ]
     },
     {
-        question: 'Question 3 about Javascript',
+        question: 'Arrays in Javascript can be use to store _____',
         answers: [
-            { text: 'right answer', correct: true },
-            { text: 'wrong answer 1', correct: false },
-            { text: 'wrong answer 2', correct: false },
-            { text: 'wrong answer 3', correct: false },
+            { text: 'numbers and strings', correct: false },
+            { text: 'other arrays', correct: false },
+            { text: 'all of the above', correct: true },
+            { text: 'booleans', correct: false },
         ]
     },
     {
-        question: 'Question 4 about Javascript',
+        question: 'String values must be enclosed within ____ when being assigned to variables.',
         answers: [
-            { text: 'right answer', correct: true },
-            { text: 'wrong answer 1', correct: false },
-            { text: 'wrong answer 2', correct: false },
-            { text: 'wrong answer 3', correct: false },
+            { text: 'quotes', correct: true },
+            { text: 'commas', correct: false },
+            { text: 'curly brackets', correct: false },
+            { text: 'parenthesis', correct: false },
         ]
+    },
+    {
+        question: 'A very useful tool used during development and debugging for printing content to the debugger is: ',
+    answers: [    
+        { text: 'JavaScript', correct: false },
+        { text: 'for loops', correct: false },
+        { text: 'terminal/bash', correct: false },
+        { text: 'console.log', correct: true },
+    ]
+
     }
 ]
